@@ -8,7 +8,6 @@
 		
 		/** @private */
 		zb var _position:Vec3 = new Vec3();
-		
 		/** @private */
 		zb var _zsVec:Vector.<ZSprite> = new Vector.<ZSprite>();
 		/** @private */
