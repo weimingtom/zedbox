@@ -1,5 +1,5 @@
 =======================================================================
-    ZedBox - 2.5D engine for ActionScript 3.0
+    ZedBox - 2.5D billboard engine for ActionScript 3.0
 		http://code.google.com/p/zedbox
 
     by CJ Cat (Allen Chou)

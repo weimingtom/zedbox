@@ -1,8 +1,8 @@
 ﻿package idv.cjcat.zedbox.geom {
 	use namespace zb;
 	
-	import flash.geom.Matrix;
 	import idv.cjcat.zedbox.*;
+	import idv.cjcat.zedbox.pools.*;
 	
 	public class Matrix3 {
 		
@@ -68,12 +68,16 @@
 			tx = ty = tz = 0;
 		}
 		
+		private var temp:Matrix3;
 		/**
 		 * 
 		 * @param	angle  In radians.
 		 */
 		public function rotateX(angle:Number):void {
-			concat(new Matrix3(1, 0, 0, 0, Math.cos(angle), -Math.sin(angle), 0, Math.sin(angle), Math.cos(angle), 0, 0, 0));
+			temp = Matrix3Pool.get(1, 0, 0, 0, Math.cos(angle), -Math.sin(angle), 0, Math.sin(angle), Math.cos(angle), 0, 0, 0);
+			concat(temp);
+			Matrix3Pool.recycle(temp);
+			temp = null;
 		}
 		
 		/**
@@ -81,7 +85,10 @@
 		 * @param	angle  In radians.
 		 */
 		public function rotateY(angle:Number):void {
-			concat(new Matrix3(Math.cos(angle), 0, Math.sin(angle), 0, 1, 0, -Math.sin(angle), 0, Math.cos(angle), 0, 0, 0));
+			temp = Matrix3Pool.get(Math.cos(angle), 0, Math.sin(angle), 0, 1, 0, -Math.sin(angle), 0, Math.cos(angle), 0, 0, 0);
+			concat(temp);
+			Matrix3Pool.recycle(temp);
+			temp = null;
 		}
 		
 		/**
@@ -89,11 +96,17 @@
 		 * @param	angle  In radians.
 		 */
 		public function rotateZ(angle:Number):void {
-			concat(new Matrix3(Math.cos(angle), -Math.sin(angle), 0, Math.sin(angle), Math.cos(angle), 0, 0, 0, 1, 0, 0, 0));
+			temp = Matrix3Pool.get(Math.cos(angle), -Math.sin(angle), 0, Math.sin(angle), Math.cos(angle), 0, 0, 0, 1, 0, 0, 0);
+			concat(temp);
+			Matrix3Pool.recycle(temp);
+			temp = null;
 		}
 		
 		public function scale(x:Number, y:Number, z:Number):void {
-			concat(new Matrix3(x, 0, 0, 0, y, 0, 0, 0, z, 0, 0, 0));
+			temp = Matrix3Pool.get(x, 0, 0, 0, y, 0, 0, 0, z, 0, 0, 0);
+			concat(temp);
+			Matrix3Pool.recycle(temp);
+			temp = null;
 		}
 		
 		public function translate(x:Number, y:Number, z:Number):void {

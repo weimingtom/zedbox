@@ -5,7 +5,9 @@
 	
 	public class ZedData {
 		
+		/** @private */
 		zb var _zs:ZedSprite;
+		/** @private */
 		zb var _cameraDiff:Vec3 = new Vec3();
 		
 		public function get zedSprite():ZedSprite { return _zs; }

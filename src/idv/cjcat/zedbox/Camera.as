@@ -10,7 +10,9 @@
 		public var rotation:Number = 0;
 		public var usePerspective:Boolean = true;
 		
+		/** @private */
 		zb var _position:Vec3 = new Vec3(0, 0, -1000);
+		/** @private */
 		zb var _direction:Vec3 = new Vec3(0, 0, 1);
 		
 		public function Camera() {

@@ -8,14 +8,23 @@
 	
 	public class ZedSprite extends Sprite {
 		
+		/** @private */
 		zb var _x:Number = 0;
+		/** @private */
 		zb var _y:Number = 0;
+		/** @private */
 		zb var _z:Number = 0;
+		/** @private */
 		zb var _rotationX:Number = 0;
+		/** @private */
 		zb var _rotationY:Number = 0;
+		/** @private */
 		zb var _rotationZ:Number = 0;
+		/** @private */
 		zb var _scaleX:Number = 1;
+		/** @private */
 		zb var _scaleY:Number = 1;
+		/** @private */
 		zb var _scaleZ:Number = 1;
 		
 		/** @private */
@@ -114,17 +123,29 @@
 		override public function get scaleZ():Number { return _scaleZ; }
 		override public function set scaleZ(value:Number):void { _scaleZ = value; }
 		
+		/** @private */
 		zb function get superX():Number { return super.x; }
+		/** @private */
 		zb function set superX(value:Number):void { super.x = value; }
+		/** @private */
 		zb function get superY():Number { return super.y; }
+		/** @private */
 		zb function set superY(value:Number):void { super.y = value; }
+		/** @private */
 		zb function get superZ():Number { return super.z; }
+		/** @private */
 		zb function set superZ(value:Number):void { super.z = value; }
+		/** @private */
 		zb function get superRotation():Number { return super.rotation; }
+		/** @private */
 		zb function set superRotation(value:Number):void { super.rotation = value; }
+		/** @private */
 		zb function get superScaleX():Number { return super.scaleX; }
+		/** @private */
 		zb function set superScaleX(value:Number):void { super.scaleX = value; }
+		/** @private */
 		zb function get superScaleY():Number { return super.scaleY; }
+		/** @private */
 		zb function set superScaleY(value:Number):void { super.scaleY = value; }
 		
 		override public function get parent():DisplayObjectContainer { return _parent; }

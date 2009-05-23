@@ -5,10 +5,14 @@
 	import flash.errors.*;
 	import flash.events.*;
 	
+	import idv.cjcat.zedbox.filters.*;
 	import idv.cjcat.zedbox.geom.*;
 	import idv.cjcat.zedbox.pools.*;
 	
 	public class ZedScene extends Sprite {
+		
+		/** @private */
+		zb var _zfilters:Vector.<IZFilter> = new Vector.<IZFilter>();
 		
 		/** @private */
 		zb var _camera:Camera = new Camera();
@@ -55,7 +59,7 @@
 				}
 				
 				if (_camera.usePerspective) {
-					var d = zd._cameraDiff.z / _camera.focalLength;
+					var d:Number = zd._cameraDiff.z / _camera.focalLength;
 					zs.superX = _camera.zoom * zd._cameraDiff.x / (d + 1);
 					zs.superY = _camera.zoom * zd._cameraDiff.y / (d + 1);
 					zs.superScaleX = zs.superScaleY = _camera.zoom / (d + 1);
@@ -64,6 +68,8 @@
 					zs.superY = _camera.zoom * zd._cameraDiff.y;
 					zs.superScaleX = zs.superScaleY = 1;
 				}
+				
+				for each (var filter:IZFilter in _zfilters) filter.process(zd);
 			}
 		}
 		
@@ -110,6 +116,14 @@
 			return obj;
 		}
 		
+		
+		//accessors
+		//------------------------------------------------------------------------------------------------
+		
+		public function get zFilters():Vector.<IZFilter> { return _zfilters; }
 		public function get camera():Camera { return _camera; }
+		
+		//------------------------------------------------------------------------------------------------
+		//end of accessors
 	}
 }
