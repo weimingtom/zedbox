@@ -1,22 +1,8 @@
-﻿/**
- * Vec3
- * 
- * @author		Allen Chou
- * @version		1.0.4 (last update: Nov 16 2008)
- * @link        http://cjcat.blogspot.com
- * @link		http://cjcat2266.deviantart.com
- */
-
-package idv.cjcat.zedbox.geom {
-	import flash.display.*;
-	import flash.events.*;
-	import flash.geom.*;
+﻿package idv.cjcat.zedbox.geom {
+	use namespace zb;
 	
-	import idv.cjcat.*;
+	import idv.cjcat.zedbox.*;
 	
-	/**
-	 * A <code>Vec3</code> object represents a vector in 2D space.
-	 */
 	public class Vec3 {
 		
 		public var x:Number;
@@ -24,7 +10,7 @@ package idv.cjcat.zedbox.geom {
 		public var z:Number;
 		
 		public function Vec3(x:Number = 0, y:Number = 0, z:Number = 0) {
-			set(x, y, z);
+			this.set(x, y, z);
 		}
 		
 		public function set(x:Number, y:Number, z:Number):void {
@@ -33,96 +19,59 @@ package idv.cjcat.zedbox.geom {
 			this.z = z;
 		}
 		
-		public function add(vector:Vec3):Vec3 {
-			return new Vec3(this.x + vector.x, this.y + vector.y, this.z + vector.z);
+		public function dot(v:Vec3):Number {
+			return x * v.x + y * v.y + z * v.z;
 		}
 		
-		public function subtract(vector:Vec3):Vec3 {
-			return new Vec3(this.x - vector.x, this.y - vector.y, this.z - vector.z);
+		public function cross(v:Vec3):Vec3 {
+			return new Vec3((y * v.z - z * v.y), (z * v.x - x * v.z), (x * v.y - y * v.x));
 		}
 		
-		/**
-		 * Copies a vector.
-		 * @return The copy.
-		 */
-		public function clone():Vec3 {
-			return new Vec3(x, y, z);
+		public function lengthSQ():Number { return x * x + y * y + z * z; }
+		public function get length():Number { return Math.sqrt(x * x + y * y + z * z); }
+		public function set length(value:Number):void {
+			var leng:Number = length;
+			var ratio:Number = value / leng;
+			x *= ratio;
+			y *= ratio;
+			z *= ratio;
 		}
 		
-		/**
-		 * Calculates the dot product of two vectors.
-		 * @param	vector  Another vector.
-		 * @return The dot product.
-		 */
-		public function dot(vector:Vec3):Number {
-			return (x * vector.x) + (y * vector.y) + (z * vector.z);
+		public function unitVec():Vec3 {
+			var len:Number = length;
+			return new Vec3(x / len, y / len, z / len);
 		}
 		
-		/**
-		 * Calcultes the cross product of two vectors
-		 * @param	vector  Another vector.
-		 * @return The cross product.
-		 */
-		public function cross(vector:Vec3):Vec3 {
-			return new Vec3(this.y * vector.z - this.z - vector.y, this.z * vector.x - this.x * vector.z, this.x * vector.y - this.y * vector.x);
+		public function rotateThis(axis:Vec3, angle:Number):void {
+			var temp:Vec3 = rotate(axis, angle);
+			this.x = temp.x;
+			this.y = temp.y;
+			this.z = temp.z;
 		}
 		
-		/**
-		 * Calculate the projection of one vector onto another.
-		 * @param	target  The target vector.
-		 * @return The projected vector obtained.
-		 */
 		public function project(target:Vec3):Vec3 {
 			target = target.unitVec();
-			target.length = this.dot(target);
+			target.length = dot(target);
 			return target;
 		}
 		
-		/**
-		 * Returns the result of a vector after rotated by a specified angle.
-		 * @param	angle      The angle of rotation.
-		 * @param	radian     Whether the unit of angle is radian; otherwise, it's in degree.
-		 * @param	clockwise  Whether the rotation is clockwise; otherwise, it's counterclockwise.
-		 * @return The rotated vector.
-		 */
-		public function rotateZ(angle:Number, useAngle:Boolean = false, clockwise:Boolean = false):Vec3 {
-			var factor:Number = (clockwise)?(1):(-1);
-			if (useAngle) angle = angle * Math.PI / 180;
+		public function rotate(axis:Vec3, angle:Number):Vec3 {
+			var n:Vec3 = axis.unitVec();
+			var dotProd:Number = this.dot(n);
+			var par:Vec3 = new Vec3(dotProd * n.x, dotProd * n.y, dotProd * n.z);
+			var per:Vec3 = new Vec3(x - par.x, y - par.y, z - par.z);
+			var w:Vec3 = n.cross(this);
 			
-			var temp:Vec3 = new Vec3(x * Math.cos(angle) + y * factor * Math.sin(angle), -x * factor * Math.sin(angle) + y * Math.cos(angle), z);
-			temp.length = temp.length;
+			var cosine:Number = Math.cos(angle);
+			var sine:Number = Math.sin(angle);
 			
-			return temp;
+			return new Vec3((cosine * per.x + sine * w.x + par.x), (cosine * per.y + sine * w.y + par.y), (cosine * per.z + sine * w.z + par.z));
 		}
 		
-		/**
-		 * Returns the unit vector of a vector.
-		 * @return The unit vector.
-		 */
-		public function unitVec():Vec3 {
-			if (length == 0) return new Vec3();
-			
-			var vec:Vec3 = this.clone();
-			vec.length = 1;
-			return vec;
-		}
+		public function clone():Vec3 { return new Vec3(x, y, z); }
 		
-		/**
-		 * The square of the vector length.
-		 */
-		public function get lengthSQ():Number {
-			return x * x + y * y + z * z;
-		}
-		
-		/**
-		 * Vector length;
-		 */
-		public function get length():Number { return Math.sqrt(lengthSQ); }
-		public function set length(value:Number):void {
-			var leng:Number = length;
-			x = x * value / leng;
-			y = y * value / leng;
-			z = z * value / leng;
+		public function toString():String {
+			return "[Vec3 x=" + x + ", y=" + y + ", z=" + z + "]";
 		}
 	}
 }
