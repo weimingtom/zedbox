@@ -2,6 +2,6 @@
 	
 	public class ZedBox {
 		
-		public static const VERSION:String = "1.0.9";
+		public static const VERSION:String = "1.0.11";
 	}
 }

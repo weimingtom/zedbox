@@ -16,7 +16,7 @@
 		 * @param	farPlane   The far z plane.
 		 * @param	range  The range of variation.
 		 */
-		public function AlphaZFilter(nearPlane:Number, farPlane:Number, range:Number = 50) {
+		public function AlphaZFilter(nearPlane:Number = 0, farPlane:Number = 2000, range:Number = 100) {
 			this.nearPlane = nearPlane;
 			this.farPlane = farPlane;
 			_nearRange = _farRange = range;
@@ -36,6 +36,10 @@
 				data._zs.alpha = ZedBoxMath.clamp(ZedBoxMath.interpolate(_farPlane - _farRange, 1, _farPlane, 0, dz), 0, 1);
 				return;
 			}
+		}
+		
+		public function restore(data:ZedData):void {
+			data._zs.alpha = 0;
 		}
 		
 		/**

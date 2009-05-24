@@ -6,5 +6,6 @@
 	public interface IZFilter {
 		
 		function process(data:ZedData):void;
+		function restore(data:ZedData):void;
 	}
 }
