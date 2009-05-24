@@ -26,11 +26,41 @@
 			this.tx = tx; this.ty = ty; this.tz = tz;
 		}
 		
-		public function set(rotationX:Number = 0, rotationY:Number = 0, rotationZ:Number = 0, scaleX:Number = 1, scaleY:Number = 1, scaleZ:Number = 1, tx:Number = 0, ty:Number = 0, tz:Number = 0):void {
+		public function set(rotationX:Number = 0, rotationY:Number = 0, rotationZ:Number = 0, scaleX:Number = 1, scaleY:Number = 1, scaleZ:Number = 1, tx:Number = 0, ty:Number = 0, tz:Number = 0, rotationOrder:int = 0):void {
 			identity();
-			if (rotationZ != 0) rotateZ(rotationZ);
-			if (rotationY != 0) rotateY(rotationY);
-			if (rotationX != 0) rotateX(rotationX);
+			switch (rotationOrder) {
+				default:
+				case RotationOrder.ZYX:
+					if (rotationX != 0) rotateX(rotationX);
+					if (rotationY != 0) rotateY(rotationY);
+					if (rotationZ != 0) rotateZ(rotationZ);
+					break;
+				case RotationOrder.ZXY:
+					if (rotationY != 0) rotateY(rotationY);
+					if (rotationX != 0) rotateX(rotationX);
+					if (rotationZ != 0) rotateZ(rotationZ);
+					break;
+				case RotationOrder.YZX:
+					if (rotationX != 0) rotateX(rotationX);
+					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationY != 0) rotateY(rotationY);
+					break;
+				case RotationOrder.YXZ:
+					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationX != 0) rotateX(rotationX);
+					if (rotationY != 0) rotateY(rotationY);
+					break;
+				case RotationOrder.XZY:
+					if (rotationY != 0) rotateY(rotationY);
+					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationX != 0) rotateX(rotationX);
+					break;
+				case RotationOrder.XYZ:
+					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationY != 0) rotateY(rotationY);
+					if (rotationX != 0) rotateX(rotationX);
+					break;
+			}
 			if (scaleX != 1 || scaleY != 1 || scaleZ != 1) scale(scaleX, scaleY, scaleZ);
 			if (tx != 0 || ty != 0 || tz != 0) translate(tx, ty, tz);
 		}

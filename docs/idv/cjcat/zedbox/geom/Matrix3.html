@@ -174,7 +174,7 @@ if (!isEclipse() || window.name != ECLIPSE_FRAME_NAME) {titleBar_setSubTitle("Cl
 <tr class="">
 <td class="summaryTablePaddingCol">&nbsp;</td><td class="summaryTableInheritanceCol">&nbsp;</td><td class="summaryTableSignatureCol">
 <div class="summarySignature">
-<a class="signatureLink" href="#set()">set</a>(rotationX:Number = 0, rotationY:Number = 0, rotationZ:Number = 0, scaleX:Number = 1, scaleY:Number = 1, scaleZ:Number = 1, tx:Number = 0, ty:Number = 0, tz:Number = 0):void</div>
+<a class="signatureLink" href="#set()">set</a>(rotationX:Number = 0, rotationY:Number = 0, rotationZ:Number = 0, scaleX:Number = 1, scaleY:Number = 1, scaleZ:Number = 1, tx:Number = 0, ty:Number = 0, tz:Number = 0, rotationOrder:int = 0):void</div>
 <div class="summaryTableDescription"></div>
 </td><td class="summaryTableOwnerCol">Matrix3</td>
 </tr>
@@ -539,7 +539,7 @@ showHideInherited();
 </tr>
 </table>
 <div class="detailBody">
-<code>public function set(rotationX:Number = 0, rotationY:Number = 0, rotationZ:Number = 0, scaleX:Number = 1, scaleY:Number = 1, scaleZ:Number = 1, tx:Number = 0, ty:Number = 0, tz:Number = 0):void</code><span class="label">Parameters</span>
+<code>public function set(rotationX:Number = 0, rotationY:Number = 0, rotationZ:Number = 0, scaleX:Number = 1, scaleY:Number = 1, scaleZ:Number = 1, tx:Number = 0, ty:Number = 0, tz:Number = 0, rotationOrder:int = 0):void</code><span class="label">Parameters</span>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 <td width="20px"></td><td><code><span class="label">rotationX</span>:Number</code> (default = <code>0</code>)<code></code></td>
@@ -591,6 +591,12 @@ showHideInherited();
 </tr>
 <tr>
 <td width="20px"></td><td><code><span class="label">tz</span>:Number</code> (default = <code>0</code>)<code></code></td>
+</tr>
+<tr>
+<td class="paramSpacer">&nbsp;</td>
+</tr>
+<tr>
+<td width="20px"></td><td><code><span class="label">rotationOrder</span>:int</code> (default = <code>0</code>)<code></code></td>
 </tr>
 </table>
 </div>

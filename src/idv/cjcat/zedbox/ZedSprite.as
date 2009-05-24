@@ -8,6 +8,8 @@
 	
 	public class ZedSprite extends Sprite {
 		
+		public var rotationOrder:int = RotationOrder.ZYX;
+		
 		/** @private */
 		zb var _x:Number = 0;
 		/** @private */
@@ -44,7 +46,7 @@
 		
 		public function getMatrix():Matrix3 {
 			var matrix:Matrix3 = new Matrix3();
-			matrix.set(_rotationX, _rotationY, _rotationZ, _scaleX, _scaleY, _scaleZ, _x, _y, _z);
+			matrix.set(_rotationX, _rotationY, _rotationZ, _scaleX, _scaleY, _scaleZ, _x, _y, _z, rotationOrder);
 			
 			if (_parent is ZedScene) {
 				return matrix;
