@@ -56,6 +56,7 @@
 						zs._outOfRange = false;
 						zs.visible = zs._visibleBeforeOutOfRange;
 					}
+					
 				}
 				
 				if (_camera.usePerspective) {
@@ -69,7 +70,9 @@
 					zs.superScaleX = zs.superScaleY = 1;
 				}
 				
-				for each (var filter:IZFilter in _zfilters) filter.process(zd);
+				var filter:IZFilter;
+				if (zs.visible) for each (filter in _zfilters) filter.process(zd);
+				else for each (filter in _zfilters) filter.restore(zd);
 			}
 		}
 		
