@@ -39,7 +39,7 @@
 		}
 		
 		public function restore(data:ZedData):void {
-			data._zs.alpha = 0;
+			data._zs.alpha = 1;
 		}
 		
 		/**
