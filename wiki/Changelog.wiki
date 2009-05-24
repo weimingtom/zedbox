@@ -1,5 +1,13 @@
 #labels Featured
-=Version 1.0.5=
+=Version 1.0.9=
+
+===Added===
+  * ZedSprite.rotationOrder property added.
+  * RotationOrder class added.
+
+----
+
+==Version 1.0.5==
 
 ===Added===
   * ZFilter support.
