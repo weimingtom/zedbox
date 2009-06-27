@@ -4,6 +4,8 @@
   * ZFilters.
   * More coming up...
 
+----
+
 ==Version 1.0==
 
   * Stable release.
