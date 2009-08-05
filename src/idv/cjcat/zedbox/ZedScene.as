@@ -9,7 +9,7 @@
 	import idv.cjcat.zedbox.geom.*;
 	import idv.cjcat.zedbox.pools.*;
 	
-	public class ZedScene extends Sprite {
+	public class ZedScene extends Sprite implements IZedBoxSprite {
 		
 		/** @private */
 		zb var _zfilters:Vector.<IZFilter> = new Vector.<IZFilter>();

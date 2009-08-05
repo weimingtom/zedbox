@@ -6,7 +6,7 @@
 	
 	import idv.cjcat.zedbox.geom.*;
 	
-	public class ZedSprite extends Sprite {
+	public class ZedSprite extends Sprite implements IZedBoxSprite {
 		
 		public var rotationOrder:int = RotationOrder.ZYX;
 		
