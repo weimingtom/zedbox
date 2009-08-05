@@ -32,9 +32,9 @@
 		/** @private */
 		zb var _parent:Sprite;
 		/** @private */
-		zb var _zsChildren:Vector.<ZedSprite> = new Vector.<ZedSprite>();
+		zb var _zsChildren:Array = [];
 		/** @private */
-		zb var _doChildren:Vector.<DisplayObject> = new Vector.<DisplayObject>();
+		zb var _doChildren:Array = [];
 		/** @private */
 		zb var _outOfRange:Boolean = false;
 		/** @private */
@@ -95,26 +95,26 @@
 		override public function set x(value:Number):void { _x = value; }
 		override public function get y():Number { return _y; }
 		override public function set y(value:Number):void { _y = value; }
-		override public function get z():Number { return _z; }
-		override public function set z(value:Number):void { _z = value; }
+		public function get z():Number { return _z; }
+		public function set z(value:Number):void { _z = value; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
 		 */
-		override public function get rotationX():Number { return _rotationX * 57.29577951; }
-		override public function set rotationX(value:Number):void { _rotationX = value * 0.0174532925; }
+		public function get rotationX():Number { return _rotationX * 57.29577951; }
+		public function set rotationX(value:Number):void { _rotationX = value * 0.0174532925; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
 		 */
-		override public function get rotationY():Number { return _rotationY * 57.29577951; }
-		override public function set rotationY(value:Number):void { _rotationY = value * 0.0174532925;
+		public function get rotationY():Number { return _rotationY * 57.29577951; }
+		public function set rotationY(value:Number):void { _rotationY = value * 0.0174532925;
 		/**
 		 * 
 		 * @param	angle  In degrees.
 		 */}
-		override public function get rotationZ():Number { return _rotationZ * 57.29577951; }
-		override public function set rotationZ(value:Number):void { _rotationZ = value * 0.0174532925; }
+		public function get rotationZ():Number { return _rotationZ * 57.29577951; }
+		public function set rotationZ(value:Number):void { _rotationZ = value * 0.0174532925; }
 		
 		override public function set rotation(value:Number):void { return; }
 		
@@ -122,8 +122,8 @@
 		override public function set scaleX(value:Number):void { _scaleX = value; }
 		override public function get scaleY():Number { return _scaleY; }
 		override public function set scaleY(value:Number):void { _scaleY = value; }
-		override public function get scaleZ():Number { return _scaleZ; }
-		override public function set scaleZ(value:Number):void { _scaleZ = value; }
+		public function get scaleZ():Number { return _scaleZ; }
+		public function set scaleZ(value:Number):void { _scaleZ = value; }
 		
 		/** @private */
 		zb function get superX():Number { return super.x; }
@@ -134,21 +134,21 @@
 		/** @private */
 		zb function set superY(value:Number):void { super.y = value; }
 		/** @private */
-		zb function get superZ():Number { return super.z; }
+		zb function get superZ():Number { return _z; }
 		/** @private */
-		zb function set superZ(value:Number):void { super.z = value; }
+		zb function set superZ(value:Number):void { _z = value; }
 		/** @private */
 		zb function get superRotation():Number { return super.rotation; }
 		/** @private */
 		zb function set superRotation(value:Number):void { super.rotation = value; }
 		/** @private */
-		zb function get superScaleX():Number { return super.scaleX; }
+		zb function get superScaleX():Number { return _scaleX; }
 		/** @private */
-		zb function set superScaleX(value:Number):void { super.scaleX = value; }
+		zb function set superScaleX(value:Number):void { _scaleX = value; }
 		/** @private */
-		zb function get superScaleY():Number { return super.scaleY; }
+		zb function get superScaleY():Number { return _scaleY; }
 		/** @private */
-		zb function set superScaleY(value:Number):void { super.scaleY = value; }
+		zb function set superScaleY(value:Number):void { _scaleY = value; }
 		
 		override public function get parent():DisplayObjectContainer { return _parent; }
 		override public function get numChildren():int { return _doChildren.length + _zsChildren.length; }

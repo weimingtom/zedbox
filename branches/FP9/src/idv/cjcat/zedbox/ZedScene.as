@@ -12,12 +12,12 @@
 	public class ZedScene extends Sprite implements IZedBoxSprite {
 		
 		/** @private */
-		zb var _zfilters:Vector.<IZFilter> = new Vector.<IZFilter>();
+		zb var _zfilters:Array = [];
 		
 		/** @private */
 		zb var _camera:Camera = new Camera();
 		
-		private var _zsChildren:Vector.<ZedSprite> = new Vector.<ZedSprite>();
+		private var _zsChildren:Array = [];
 		
 		public function ZedScene() {
 			
@@ -26,7 +26,7 @@
 		//rendering
 		//------------------------------------------------------------------------------------------------
 		
-		private var _zdList:Vector.<ZedData> = new Vector.<ZedData>();
+		private var _zdList:Array = [];
 		private var cameraMatrix:Matrix3 = new Matrix3();
 		public function render(e:Event = null):void {
 			var zd:ZedData;
@@ -123,7 +123,7 @@
 		//accessors
 		//------------------------------------------------------------------------------------------------
 		
-		public function get zFilters():Vector.<IZFilter> { return _zfilters; }
+		public function get zFilters():Array { return _zfilters; }
 		public function get camera():Camera { return _camera; }
 		
 		//------------------------------------------------------------------------------------------------
