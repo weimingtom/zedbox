@@ -46,7 +46,7 @@
 		
 		public function getMatrix():Matrix3 {
 			var matrix:Matrix3 = new Matrix3();
-			matrix.set(_rotationX, _rotationY, _rotationZ, _scaleX, _scaleY, _scaleZ, _x, _y, _z, rotationOrder);
+			matrix.set(_rotationX, _rotationY, _rotationZ, scaleX, scaleY, scaleZ, x, y, z, rotationOrder);
 			
 			if (_parent is ZedScene) {
 				return matrix;
@@ -108,11 +108,11 @@
 		 * @param	angle  In degrees.
 		 */
 		public function get rotationY():Number { return _rotationY * 57.29577951; }
-		public function set rotationY(value:Number):void { _rotationY = value * 0.0174532925;
+		public function set rotationY(value:Number):void { _rotationY = value * 0.0174532925; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
-		 */}
+		 */
 		public function get rotationZ():Number { return _rotationZ * 57.29577951; }
 		public function set rotationZ(value:Number):void { _rotationZ = value * 0.0174532925; }
 		
@@ -134,21 +134,21 @@
 		/** @private */
 		zb function set superY(value:Number):void { super.y = value; }
 		/** @private */
-		zb function get superZ():Number { return _z; }
+		zb function get superZ():Number { return z; }
 		/** @private */
-		zb function set superZ(value:Number):void { _z = value; }
+		zb function set superZ(value:Number):void { z = value; }
 		/** @private */
 		zb function get superRotation():Number { return super.rotation; }
 		/** @private */
 		zb function set superRotation(value:Number):void { super.rotation = value; }
 		/** @private */
-		zb function get superScaleX():Number { return _scaleX; }
+		zb function get superScaleX():Number { return super.scaleX; }
 		/** @private */
-		zb function set superScaleX(value:Number):void { _scaleX = value; }
+		zb function set superScaleX(value:Number):void { super.scaleX = value; }
 		/** @private */
-		zb function get superScaleY():Number { return _scaleY; }
+		zb function get superScaleY():Number { return super.scaleY; }
 		/** @private */
-		zb function set superScaleY(value:Number):void { _scaleY = value; }
+		zb function set superScaleY(value:Number):void { super.scaleY = value; }
 		
 		override public function get parent():DisplayObjectContainer { return _parent; }
 		override public function get numChildren():int { return _doChildren.length + _zsChildren.length; }

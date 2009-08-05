@@ -46,7 +46,7 @@
 		
 		public function getMatrix():Matrix3 {
 			var matrix:Matrix3 = new Matrix3();
-			matrix.set(_rotationX, _rotationY, _rotationZ, _scaleX, _scaleY, _scaleZ, _x, _y, _z, rotationOrder);
+			matrix.set(_rotationX, _rotationY, _rotationZ, scaleX, scaleY, scaleZ, x, y, z, rotationOrder);
 			
 			if (_parent is ZedScene) {
 				return matrix;
@@ -108,11 +108,11 @@
 		 * @param	angle  In degrees.
 		 */
 		override public function get rotationY():Number { return _rotationY * 57.29577951; }
-		override public function set rotationY(value:Number):void { _rotationY = value * 0.0174532925;
+		override public function set rotationY(value:Number):void { _rotationY = value * 0.0174532925; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
-		 */}
+		 */
 		override public function get rotationZ():Number { return _rotationZ * 57.29577951; }
 		override public function set rotationZ(value:Number):void { _rotationZ = value * 0.0174532925; }
 		
