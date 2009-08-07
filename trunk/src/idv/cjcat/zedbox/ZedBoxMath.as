@@ -7,13 +7,6 @@
 		
 		/**
 		 * Clamps a value between bounds.
-		 * 
-		 * <listing>
-		 * import idv.cjcat.CJMath;
-		 * trace(CJMath.clamp(5, 3, 7));  //outputs 5
-		 * trace(CJMath.clamp(1, 3, 7));  //outputs 3
-		 * trace(CJMath.clamp(9, 3, 7));  //outputs 7</listing>
-		 * 
 		 * @param	input       Original value.
 		 * @param	lowerBound  Lower bound.
 		 * @param	upperBound  Upper bound.
