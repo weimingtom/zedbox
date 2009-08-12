@@ -41,7 +41,7 @@
 		zb var _visibleBeforeOutOfRange:Boolean = true;
 		
 		public function ZedSprite(displayObject:DisplayObject = null) {
-			if (!displayObject) addChild(displayObject);
+			if (displayObject) addChild(displayObject);
 		}
 		
 		public function getMatrix():Matrix3 {
