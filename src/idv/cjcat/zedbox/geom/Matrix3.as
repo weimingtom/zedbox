@@ -31,34 +31,34 @@
 			switch (rotationOrder) {
 				default:
 				case RotationOrder.ZYX:
-					if (rotationZ != 0) rotateZ(rotationZ);
-					if (rotationY != 0) rotateY(rotationY);
 					if (rotationX != 0) rotateX(rotationX);
+					if (rotationY != 0) rotateY(rotationY);
+					if (rotationZ != 0) rotateZ(rotationZ);
 					break;
 				case RotationOrder.ZXY:
-					if (rotationZ != 0) rotateZ(rotationZ);
-					if (rotationX != 0) rotateX(rotationX);
 					if (rotationY != 0) rotateY(rotationY);
+					if (rotationX != 0) rotateX(rotationX);
+					if (rotationZ != 0) rotateZ(rotationZ);
 					break;
 				case RotationOrder.YZX:
-					if (rotationY != 0) rotateY(rotationY);
-					if (rotationZ != 0) rotateZ(rotationZ);
 					if (rotationX != 0) rotateX(rotationX);
+					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationY != 0) rotateY(rotationY);
 					break;
 				case RotationOrder.YXZ:
-					if (rotationY != 0) rotateY(rotationY);
-					if (rotationX != 0) rotateX(rotationX);
 					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationX != 0) rotateX(rotationX);
+					if (rotationY != 0) rotateY(rotationY);
 					break;
 				case RotationOrder.XZY:
-					if (rotationX != 0) rotateX(rotationX);
-					if (rotationZ != 0) rotateZ(rotationZ);
 					if (rotationY != 0) rotateY(rotationY);
+					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationX != 0) rotateX(rotationX);
 					break;
 				case RotationOrder.XYZ:
-					if (rotationX != 0) rotateX(rotationX);
-					if (rotationY != 0) rotateY(rotationY);
 					if (rotationZ != 0) rotateZ(rotationZ);
+					if (rotationY != 0) rotateY(rotationY);
+					if (rotationX != 0) rotateX(rotationX);
 					break;
 			}
 			if (scaleX != 1 || scaleY != 1 || scaleZ != 1) scale(scaleX, scaleY, scaleZ);
