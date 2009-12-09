@@ -1,5 +1,6 @@
 ﻿package idv.cjcat.zedbox.actions {
 	import flash.filters.BlurFilter;
+	import idv.cjcat.stardust.common.actions.Action;
 	import idv.cjcat.zedbox.geom.ZedData;
 	import idv.cjcat.zedbox.ZedBoxMath;
 	
