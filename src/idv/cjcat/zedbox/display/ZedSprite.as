@@ -124,6 +124,9 @@
 		override public function get scaleZ():Number { return _scaleZ; }
 		override public function set scaleZ(value:Number):void { _scaleZ = value; _transformDirty = true; }
 		
+		public function get screenX():Number { return super.x; }
+		public function get screenY():Number { return super.y; }
+		
 		/** @private */
 		zb function get superX():Number { return super.x; }
 		/** @private */
