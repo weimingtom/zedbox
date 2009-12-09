@@ -92,26 +92,26 @@
 		override public function set x(value:Number):void { _x = value; _transformDirty = true; }
 		override public function get y():Number { return _y; }
 		override public function set y(value:Number):void { _y = value; _transformDirty = true; }
-		override public function get z():Number { return _z; }
-		override public function set z(value:Number):void { _z = value; _transformDirty = true; }
+		public function get z():Number { return _z; }
+		public function set z(value:Number):void { _z = value; _transformDirty = true; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
 		 */
-		override public function get rotationX():Number { return _rotationX * ZedBoxMath.RADIAN_TO_DEGREE; }
-		override public function set rotationX(value:Number):void { _rotationX = value * ZedBoxMath.DEGREE_TO_RADIAN; _transformDirty = true; }
+		public function get rotationX():Number { return _rotationX * ZedBoxMath.RADIAN_TO_DEGREE; }
+		public function set rotationX(value:Number):void { _rotationX = value * ZedBoxMath.DEGREE_TO_RADIAN; _transformDirty = true; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
 		 */
-		override public function get rotationY():Number { return _rotationY * ZedBoxMath.RADIAN_TO_DEGREE; }
-		override public function set rotationY(value:Number):void { _rotationY = value * ZedBoxMath.DEGREE_TO_RADIAN; _transformDirty = true; }
+		public function get rotationY():Number { return _rotationY * ZedBoxMath.RADIAN_TO_DEGREE; }
+		public function set rotationY(value:Number):void { _rotationY = value * ZedBoxMath.DEGREE_TO_RADIAN; _transformDirty = true; }
 		/**
 		 * 
 		 * @param	angle  In degrees.
 		 */
-		override public function get rotationZ():Number { return _rotationZ * ZedBoxMath.RADIAN_TO_DEGREE; }
-		override public function set rotationZ(value:Number):void { _rotationZ = value * ZedBoxMath.DEGREE_TO_RADIAN; _transformDirty = true; }
+		public function get rotationZ():Number { return _rotationZ * ZedBoxMath.RADIAN_TO_DEGREE; }
+		public function set rotationZ(value:Number):void { _rotationZ = value * ZedBoxMath.DEGREE_TO_RADIAN; _transformDirty = true; }
 		public function get rotationOrder():int { return _rotationOrder; }
 		public function set rotationOrder(value:int):void { _rotationOrder = value; _transformDirty = true; }
 		
@@ -121,8 +121,8 @@
 		override public function set scaleX(value:Number):void { _scaleX = value; _transformDirty = true; }
 		override public function get scaleY():Number { return _scaleY; }
 		override public function set scaleY(value:Number):void { _scaleY = value; _transformDirty = true; }
-		override public function get scaleZ():Number { return _scaleZ; }
-		override public function set scaleZ(value:Number):void { _scaleZ = value; _transformDirty = true; }
+		public function get scaleZ():Number { return _scaleZ; }
+		public function set scaleZ(value:Number):void { _scaleZ = value; _transformDirty = true; }
 		
 		public function get screenX():Number { return super.x; }
 		public function get screenY():Number { return super.y; }
@@ -135,10 +135,6 @@
 		zb function get superY():Number { return super.y; }
 		/** @private */
 		zb function set superY(value:Number):void { super.y = value; }
-		/** @private */
-		zb function get superZ():Number { return super.z; }
-		/** @private */
-		zb function set superZ(value:Number):void { super.z = value; }
 		/** @private */
 		zb function get superRotation():Number { return super.rotation; }
 		/** @private */
